@@ -65,32 +65,49 @@ function playRound(playerSelection,computerSelection){
     let player = window.prompt('what is your choice?(rock/paper/scissor)');
     playerSelection = player.toLowerCase();
 
-  if(playerSelection==computerSelection)
+  if(playerSelection===computerSelection)
     return ('Its a tie !');
-  else if (playerSelection == 'rock' && computerSelection == 'paper')
-    return ('Paper covers rock, Computer win !');
-  else if (playerSelection == 'rock' && computerSelection == 'scissor')
-    return ('rock crushes scissor, You wins !');
-  else if (playerSelection == 'paper' && computerSelection == 'rock')
-    return ('paper covers rock, You win !');
-  else if (playerSelection == 'paper' && computerSelection == 'scissor')
-    return ('scissor cuts paper, Computer win !');
-  else if (playerSelection == 'scissor' && computerSelection == 'rock')
-    return ('rock crushes scissor, Computer win !');
-  else if (playerSelection == 'scissor' && computerSelection == 'paper')
-    return ('scissor cuts paper, You win !');
-
-    
+  else if (playerSelection === 'rock' && computerSelection == 'paper')
+    return ('Computer win !');
+  else if (playerSelection === 'rock' && computerSelection == 'scissor')
+    return ('You win !');
+  else if (playerSelection === 'paper' && computerSelection == 'rock')
+    return ('You win !');
+  else if (playerSelection === 'paper' && computerSelection == 'scissor')
+    return ('Computer win !');
+  else if (playerSelection === 'scissor' && computerSelection == 'rock')
+    return ('Computer win !');
+  else if (playerSelection === 'scissor' && computerSelection == 'paper')
+    return ('You win !');
+   console.log(playRound(playerSelection, computerSelection));
 }
+
+
 
 function playGame(){
   let playerScore =0;
   let ComputerScore =0;
+
   for (let i=0;i<5;i++){
     let result = playRound();
-
+    console.log(result);
+     if (result === 'Computer win !'){
+        ComputerScore++;
+    }
+        playerScore++;
+    
   }
+if(playerScore===ComputerScore) 
+      console.log( 'It\'s a tie game !');
+else if (playerScore>ComputerScore) 
+      console.log( 'Congratulations ! You Won !!!');
+      
+else 
+      console.log( ' Oh no ! The Computer Wins');
+      console.log('Computer Score =' + ComputerScore);
+      console.log('Player Score ='+playerScore);
+
 }
 
-
+playGame();
 
